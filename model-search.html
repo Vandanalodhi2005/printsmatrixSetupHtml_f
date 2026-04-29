@@ -4,10 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>123.hp.com/setup | HP Printer Setup</title>
+    <meta name="description" content="Search for your HP printer model to find specific setup instructions, driver downloads, and troubleshooting guides for your device.">
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script" fetchpriority="high">
+    <link rel="preload" href="./images/hero_background_image.webp" as="image" fetchpriority="high">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Performance Optimizations: Preconnect to CDNs -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Stylesheets -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        /* Ensure font-display swap is used */
+        @font-face {
+            font-family: 'Outfit';
+            font-display: swap;
+        }
         body { font-family: 'Outfit', sans-serif; }
         .hero-bg {
             position: relative;
@@ -20,7 +40,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: rgba(44, 44, 44, 0.192);/* Subtle dark overlay for text readability */
+            background: rgba(109, 106, 106, 0.11);/* Subtle dark overlay for text readability */
             z-index: 1;
         }
         .pill-input {
@@ -41,7 +61,13 @@
     <header class="w-full h-20 bg-white flex items-center border-b border-gray-100">
         <nav class="w-full max-w-7xl mx-auto px-4 md:px-8 flex items-center">
             <div class="flex items-center gap-6">
-                <img src="./images/hp-logo.jpeg" alt="HP Logo" class="h-10 w-10 object-contain rounded-full shadow-sm">
+                <img 
+                    src="./images/hp-logo.jpeg" 
+                    alt="HP Logo" 
+                    class="h-10 w-10 object-contain rounded-full shadow-sm"
+                    width="40"
+                    height="40"
+                >
                 <ul class="hidden md:flex flex-row gap-8 items-center">
                     <li class="text-slate-400 text-sm font-bold uppercase tracking-widest">OfficeJet</li>
                     <li class="text-slate-400 text-sm font-bold uppercase tracking-widest">DeskJet</li>
@@ -53,7 +79,9 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="w-full min-h-[450px] hero-bg flex items-center relative py-16 md:py-0">
+    <section class="w-full min-h-[450px] flex items-center relative py-16 md:py-0 overflow-hidden">
+        <img src="./images/hero_background_image.webp" alt="HP Printer Setup" class="absolute inset-0 w-full h-full object-cover z-0" fetchpriority="high">
+        <div class="absolute inset-0 bg-black/20 z-[1]"></div>
         <div class="w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between relative z-10">
             <!-- Left Content -->
             <div class="w-full md:w-1/2 text-left space-y-6">

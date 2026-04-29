@@ -4,10 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>123.hp.com/setup | HP Printer Setup, Offline Fix & Troubleshooting</title>
+    <meta name="description" content="Official 123.hp.com/setup guide for HP printer installation, driver downloads, Wi-Fi connection, and troubleshooting printer offline errors.">
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script" fetchpriority="high">
+    <link rel="preload" href="./images/hero_background_image.webp" as="image" fetchpriority="high">
+    
+    <!-- Flatten Font Chains: Preload Font Binaries Directly -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/outfit/v11/QGYvz_MVc-v3A0ocYghreWd0E_U.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Performance Optimizations: Preconnect to CDNs -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    
+    <!-- Stylesheets -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        /* Performance: Font Metric Overrides & Display Swap */
+        @font-face {
+            font-family: 'Outfit';
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Font Awesome 6 Free';
+            font-display: swap;
+            font-style: normal;
+            font-weight: 900;
+            src: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2') format('woff2');
+        }
+        
         body { font-family: 'Outfit', sans-serif; }
         .animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
         @keyframes fadeIn {
@@ -23,7 +56,13 @@
     <header class="w-full h-20 bg-white border-b border-gray-100 flex items-center sticky top-0 z-50">
         <nav class="w-full max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
             <div class="flex items-center gap-4">
-                <img src="./images/hp-logo.jpeg" alt="HP Logo" class="h-10 w-10 object-contain block shrink-0 shadow-sm rounded-full">
+                <img 
+                    src="./images/hp-logo.jpeg" 
+                    alt="HP Logo" 
+                    class="h-10 w-10 object-contain block shrink-0 shadow-sm rounded-full"
+                    width="40"
+                    height="40"
+                >
                 <ul class="hidden md:flex flex-row gap-8 items-center ml-4">
                     <li class="text-gray-400 text-sm font-bold uppercase tracking-widest">OfficeJet</li>
                     <li class="text-gray-400 text-sm font-bold uppercase tracking-widest">DeskJet</li>
@@ -32,7 +71,7 @@
                 </ul>
             </div>
             <div class="md:hidden flex items-center ml-auto">
-                <button id="menu-toggle" class="focus:outline-none">
+                <button id="menu-toggle" class="focus:outline-none" aria-label="Toggle Menu">
                     <svg class="w-7 h-7 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
@@ -49,7 +88,7 @@
 
     <!-- Hero Section -->
     <section class="relative flex flex-col items-center justify-center text-center min-h-[320px] w-full overflow-hidden">
-        <img src="./images/hero_background_image.webp" alt="HP Printer Setup" class="absolute inset-0 w-full h-full object-cover z-0">
+        <img src="./images/hero_background_image.webp" alt="HP Printer Setup" class="absolute inset-0 w-full h-full object-cover z-0" fetchpriority="high">
         <div class="absolute inset-0 hero-overlay z-0"></div>
         <div class="relative z-10 px-4 pt-12 pb-8 animate-fade-in">
             <h2 class="text-white text-3xl md:text-5xl font-extrabold mb-4 drop-shadow-lg tracking-tight">
@@ -156,30 +195,30 @@
         <!-- Quick Start Cards -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-16">
             <div class="bg-[#f6eced] rounded-2xl overflow-hidden shadow-sm flex flex-col hover:shadow-md transition-shadow">
-                <img src="./images/1ba.webp" class="w-full h-44 object-cover" alt="Download Hp Smart App">
+                <img src="./images/1ba.webp" class="w-full h-44 object-cover" alt="Download Hp Smart App" width="400" height="176" loading="lazy" decoding="async">
                 <div class="p-4 pt-4 pb-5 flex-1 text-center">
-                    <h3 class="font-extrabold text-blue-800 text-base sm:text-lg mb-2">Download the Latest Software</h3>
+                    <h2 class="font-extrabold text-blue-800 text-base sm:text-lg mb-2">Download the Latest Software</h2>
                     <p class="text-black text-xs sm:text-sm leading-relaxed">Get the latest printer drivers and software designed for optimal performance and compatibility. Always download the official version to ensure smooth installation and reliable printing results.</p>
                 </div>
             </div>
             <div class="bg-[#f6eced] rounded-2xl overflow-hidden shadow-sm flex flex-col hover:shadow-md transition-shadow">
-                <img src="./images/2ba.webp" class="w-full h-44 object-cover" alt="Connect Hp Printer to Wifi">
+                <img src="./images/2ba.webp" class="w-full h-44 object-cover" alt="Connect Hp Printer to Wifi" width="400" height="176" loading="lazy" decoding="async">
                 <div class="p-4 pt-4 pb-5 flex-1 text-center">
-                    <h3 class="font-extrabold text-blue-800 text-base sm:text-lg mb-2">Connect Your Printer</h3>
+                    <h2 class="font-extrabold text-blue-800 text-base sm:text-lg mb-2">Connect Your Printer</h2>
                     <p class="text-black text-xs sm:text-sm leading-relaxed">Connect your printer via USB cable or Wi-Fi network using the printer’s setup options. For wireless connections, make sure your printer and device are on the same network before proceeding.</p>
                 </div>
             </div>
             <div class="bg-[#f6eced] rounded-2xl overflow-hidden shadow-sm flex flex-col hover:shadow-md transition-shadow">
-                <img src="./images/3ba.webp" class="w-full h-44 object-cover" alt="Start 123 Hp Com Setup And Installation">
+                <img src="./images/3ba.webp" class="w-full h-44 object-cover" alt="Start 123 Hp Com Setup And Installation" width="400" height="176" loading="lazy" decoding="async">
                 <div class="p-4 pt-4 pb-5 flex-1 text-center">
-                    <h3 class="font-extrabold text-blue-800 text-base sm:text-lg mb-2">Install the Printer Drivers</h3>
+                    <h2 class="font-extrabold text-blue-800 text-base sm:text-lg mb-2">Install the Printer Drivers</h2>
                     <p class="text-black text-xs sm:text-sm leading-relaxed">Run the downloaded setup file and follow the on-screen instructions to install the required drivers. This ensures your printer communicates correctly with your computer or mobile device.</p>
                 </div>
             </div>
             <div class="bg-[#f6eced] rounded-2xl overflow-hidden shadow-sm flex flex-col hover:shadow-md transition-shadow">
-                <img src="./images/4ba.webp" class="w-full h-44 object-cover" alt="Finish 123.hp.com/setup and test print">
+                <img src="./images/4ba.webp" class="w-full h-44 object-cover" alt="Finish 123.hp.com/setup and test print" width="400" height="176" loading="lazy" decoding="async">
                 <div class="p-4 pt-4 pb-5 flex-1 text-center">
-                    <h3 class="font-extrabold text-blue-800 text-base sm:text-lg mb-2">Test the Printer</h3>
+                    <h2 class="font-extrabold text-blue-800 text-base sm:text-lg mb-2">Test the Printer</h2>
                     <p class="text-black text-xs sm:text-sm leading-relaxed">Once installation is complete, print a test page to confirm that your printer is working properly. Adjust settings as needed for the best print quality and performance.</p>
                 </div>
             </div>
@@ -200,28 +239,28 @@
                     123.hp.com/setup – Easy HP Printer Setup and Installation
                 </h2>
                 
-                <h4 class="text-black text-lg sm:text-xl md:text-xl mt-4 mb-2">Step 1: Unbox & Prepare the Printer</h4>
+                <h3 class="text-black text-lg sm:text-xl md:text-xl mt-4 mb-2">Step 1: Unbox & Prepare the Printer</h3>
                 <ul class="list-disc pl-6 text-black text-sm space-y-1 mb-4">
                     <li>Remove all protective tapes, packaging materials, and internal locks</li>
                     <li>Open cartridge access door and remove safety covers</li>
                     <li>Load plain white paper into the input tray</li>
                 </ul>
 
-                <h4 class="text-black text-lg sm:text-xl md:text-xl mt-6 mb-2">Step 2: Power On & Initial Settings</h4>
+                <h3 class="text-black text-lg sm:text-xl md:text-xl mt-6 mb-2">Step 2: Power On & Initial Settings</h3>
                 <ul class="list-disc pl-6 text-black text-sm space-y-1 mb-4">
                     <li>Plug the printer directly into a wall outlet</li>
                     <li>Turn ON the printer</li>
                     <li>Select <span class="font-semibold">language, region, and preferences</span> on the display panel</li>
                 </ul>
 
-                <h4 class="text-black text-lg sm:text-xl md:text-xl mt-6 mb-2">Step 3: Install Ink Cartridges</h4>
+                <h3 class="text-black text-lg sm:text-xl md:text-xl mt-6 mb-2">Step 3: Install Ink Cartridges</h3>
                 <ul class="list-disc pl-6 text-black text-sm space-y-1 mb-4">
                     <li>Insert the <span class="font-semibold">setup ink cartridges</span> provided in the box</li>
                     <li>Close the lid and wait for initialization</li>
                     <li>Print and scan the alignment page if prompted</li>
                 </ul>
 
-                <h4 class="text-black text-lg sm:text-xl md:text-xl mt-6 mb-2">Step 4: Connect to Wi-Fi Network</h4>
+                <h3 class="text-black text-lg sm:text-xl md:text-xl mt-6 mb-2">Step 4: Connect to Wi-Fi Network</h3>
                 <ul class="list-disc pl-6 text-black text-sm space-y-1 mb-4">
                     <li>Go to <span class="font-semibold">Wireless Settings</span> on the printer</li>
                     <li>Select your Wi-Fi network name (SSID)</li>
@@ -229,14 +268,14 @@
                     <li>Ensure the <span class="font-semibold">blue wireless light is stable (not blinking)</span></li>
                 </ul>
 
-                <h4 class="text-black text-lg sm:text-xl md:text-xl mt-6 mb-2">Step 5: Download Software from 123.hp.com/setup</h4>
+                <h3 class="text-black text-lg sm:text-xl md:text-xl mt-6 mb-2">Step 5: Download Software from 123.hp.com/setup</h3>
                 <ul class="list-disc pl-6 text-black text-sm space-y-1 mb-4">
                     <li>Open browser and go to <span class="font-semibold">123.hp.com/setup</span></li>
                     <li>Enter your printer model</li>
                     <li>Download <span class="font-semibold">HP Smart App or Full Feature Driver</span></li>
                 </ul>
 
-                <h4 class="text-black text-lg sm:text-xl md:text-xl mt-6 mb-2">Step 6: Complete Installation</h4>
+                <h3 class="text-black text-lg sm:text-xl md:text-xl mt-6 mb-2">Step 6: Complete Installation</h3>
                 <ul class="list-disc pl-6 text-black text-sm space-y-1">
                     <li>Run the installer</li>
                     <li>Follow on-screen instructions</li>
@@ -254,14 +293,14 @@
                     If your printer shows <span class="font-semibold">"HP Printer Offline"</span>, it means your device is not communicating with your computer. Use these proven fixes:
                 </p>
 
-                <h4 class="text-black text-lg sm:text-xl md:text-xl mt-4 mb-2">Step 1: Check Printer Connection</h4>
+                <h3 class="text-black text-lg sm:text-xl md:text-xl mt-4 mb-2">Step 1: Check Printer Connection</h3>
                 <ul class="list-disc pl-6 text-black text-sm space-y-1 mb-4">
                     <li>Ensure printer is powered ON</li>
                     <li>Verify Wi-Fi light is <span class="font-semibold">solid blue</span></li>
                     <li>Reconnect to the same network as your computer</li>
                 </ul>
 
-                <h4 class="text-black text-lg sm:text-xl md:text-xl mt-6 mb-2">Step 2: Set Printer as Default</h4>
+                <h3 class="text-black text-lg sm:text-xl md:text-xl mt-6 mb-2">Step 2: Set Printer as Default</h3>
                 <ul class="list-disc pl-6 text-black text-sm space-y-1 mb-4">
                     <li>Open <span class="font-semibold">Control Panel → Devices & Printers</span></li>
                     <li>Right-click your HP printer</li>
@@ -269,7 +308,7 @@
                     <li>Uncheck <span class="font-semibold">Use Printer Offline</span></li>
                 </ul>
 
-                <h4 class="text-black text-lg sm:text-xl md:text-xl mt-6 mb-2">Step 3: Restart Devices (Power Cycle)</h4>
+                <h3 class="text-black text-lg sm:text-xl md:text-xl mt-6 mb-2">Step 3: Restart Devices (Power Cycle)</h3>
                 <ul class="list-disc pl-6 text-black text-sm space-y-1 mb-4">
                     <li>Turn OFF the printer.</li>
                     <li>Unplug router for 30 seconds</li>
@@ -277,14 +316,14 @@
                     <li>Turn everything back ON</li>
                 </ul>
 
-                <h4 class="text-black text-lg sm:text-xl md:text-xl mt-6 mb-2">Step 4: Clear Print Queue</h4>
+                <h3 class="text-black text-lg sm:text-xl md:text-xl mt-6 mb-2">Step 4: Clear Print Queue</h3>
                 <ul class="list-disc pl-6 text-black text-sm space-y-1 mb-4">
                     <li>Open printer queue</li>
                     <li>Cancel all pending print jobs</li>
                     <li>Restart printing</li>
                 </ul>
 
-                <h4 class="text-black text-lg sm:text-xl md:text-xl mt-6 mb-2">Step 5: Assign Static IP (Advanced Fix)</h4>
+                <h3 class="text-black text-lg sm:text-xl md:text-xl mt-6 mb-2">Step 5: Assign Static IP (Advanced Fix)</h3>
                 <ul class="list-disc pl-6 text-black text-sm space-y-1">
                     <li>Print Network Configuration Page</li>
                     <li>Enter printer IP in the browser.</li>
@@ -301,35 +340,35 @@
                     If your printer is installed but not working properly, follow these troubleshooting steps:
                 </p>
 
-                <h4 class="text-black text-lg sm:text-xl md:text-xl mt-4 mb-2">1. Print Quality Issues</h4>
+                <h3 class="text-black text-lg sm:text-xl md:text-xl mt-4 mb-2">1. Print Quality Issues</h3>
                 <ul class="list-disc pl-6 text-black text-sm space-y-1 mb-4">
                     <li>Use <span class="font-semibold">Clean Printhead utility</span></li>
                     <li>Replace low or empty cartridges</li>
                     <li>Align printer for better output</li>
                 </ul>
 
-                <h4 class="text-black text-lg sm:text-xl md:text-xl mt-6 mb-2">2. Printer Not Printing</h4>
+                <h3 class="text-black text-lg sm:text-xl md:text-xl mt-6 mb-2">2. Printer Not Printing</h3>
                 <ul class="list-disc pl-6 text-black text-sm space-y-1 mb-4">
                     <li>Check paper tray and ink levels</li>
                     <li>Ensure printer is not paused</li>
                     <li>Restart printer and computer</li>
                 </ul>
 
-                <h4 class="text-black text-lg sm:text-xl md:text-xl mt-6 mb-2">3. Print Spooler Error</h4>
+                <h3 class="text-black text-lg sm:text-xl md:text-xl mt-6 mb-2">3. Print Spooler Error</h3>
                 <ul class="list-disc pl-6 text-black text-sm space-y-1 mb-4">
                     <li>Press <span class="font-semibold">Windows + R</span> → type services.msc</li>
                     <li>Locate <span class="font-semibold">Print Spooler</span></li>
                     <li>Click <span class="font-semibold">Restart</span></li>
                 </ul>
 
-                <h4 class="text-black text-lg sm:text-xl md:text-xl mt-6 mb-2">4. Driver Issues After OS Update</h4>
+                <h3 class="text-black text-lg sm:text-xl md:text-xl mt-6 mb-2">4. Driver Issues After OS Update</h3>
                 <ul class="list-disc pl-6 text-black text-sm space-y-1 mb-4">
                     <li>Visit <span class="font-semibold">123.hp.com/setup</span></li>
                     <li>Download latest compatible drivers</li>
                     <li>Reinstall software</li>
                 </ul>
 
-                <h4 class="text-black text-lg sm:text-xl md:text-xl mt-6 mb-2">5. Scanner Not Working</h4>
+                <h3 class="text-black text-lg sm:text-xl md:text-xl mt-6 mb-2">5. Scanner Not Working</h3>
                 <ul class="list-disc pl-6 text-black text-sm space-y-1">
                     <li>Enable <span class="font-semibold">Scan to Computer</span> in HP Smart App</li>
                     <li>Update drivers</li>
@@ -342,9 +381,9 @@
         <section class="mt-20">
             <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12 bg-white rounded-2xl border border-gray-200 shadow-sm px-6 py-8 sm:px-10 sm:py-10">
                 <div class="flex-1 text-left">
-                    <h3 class="font-bold text-blue-700 text-lg md:text-xl mb-4 leading-snug">
+                    <h2 class="font-bold text-blue-700 text-lg md:text-xl mb-4 leading-snug">
                         Still Need Help with 123 Hp Com Setup, Offline Fix & Troubleshooting?
-                    </h3>
+                    </h2>
                     <p class="text-gray-700 text-sm sm:text-base leading-relaxed mb-6 max-w-lg">
                         If you're still facing issues after completing these steps, our certified support team is ready to help. Connect with our online experts for real-time troubleshooting, personalized guidance, and fast solutions to get your printer running perfectly again.
                     </p>
@@ -354,7 +393,15 @@
                 </div>
                 <div class="flex-1 flex items-center justify-center w-full">
                     <div class="w-full max-w-[380px] rounded-2xl overflow-hidden shadow-xl border border-gray-100">
-                        <img src="./images/contttt.webp" alt="24/7 Live Chat Assistance" class="w-full h-full object-cover">
+                        <img 
+                            src="./images/contttt.webp" 
+                            alt="24/7 Live Chat Assistance" 
+                            class="w-full h-full object-cover"
+                            width="574"
+                            height="395"
+                            loading="lazy"
+                            decoding="async"
+                        >
                     </div>
                 </div>
             </div>
@@ -368,8 +415,14 @@
                 <!-- Column 1: Brand -->
                 <div class="space-y-8">
                     <div class="flex items-center gap-3">
-                        <img src="./images/Prints-matrix-logo.png" alt="Logo" class="h-16 w-auto">
-                        <!-- <span class="text-white text-xl font-black">Prints Matrix</span> -->
+                        <img 
+                            src="./images/Prints-matrix-logo.png" 
+                            alt="Logo" 
+                            class="h-16 w-auto"
+                            width="200"
+                            height="64"
+                            loading="lazy"
+                        >
                     </div>
                     <p class="text-slate-300 text-sm font-medium leading-relaxed max-w-xs">
                         Complete printer setup guide: Install essential drivers, connect to Wi-Fi, and resolve offline errors quickly. Follow our detailed, step-by-step instructions to configure your device, manage software, and ensure seamless wireless printing today.
@@ -419,8 +472,15 @@
             <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
                 <p class="text-[13px] font-bold text-white">Copyright © 2026 Prints Matrix</p>
                 <div class="flex items-center gap-4 bg-white/10 px-4 py-2 rounded-xl backdrop-blur-sm">
-                    <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_v3.png" alt="Payments" class="h-6 brightness-0 invert">
-                    <span class="text-white text-[10px] font-bold opacity-50 ml-2">AMEX</span>
+                    <img 
+                        src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png" 
+                        alt="Payments" 
+                        class="h-6 brightness-0 invert"
+                        width="150"
+                        height="30"
+                        loading="lazy"
+                    >
+                    <span class="text-white text-[10px] font-bold opacity-90 ml-2">AMEX</span>
                 </div>
             </div>
         </div>

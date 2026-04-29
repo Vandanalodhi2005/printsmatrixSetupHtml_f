@@ -4,10 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Installation Failed | HP Smart App</title>
+    <meta name="description" content="HP printer installation failed? Follow our troubleshooting steps to resolve driver conflicts, connection errors, and complete your printer setup.">
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script" fetchpriority="high">
+    <link rel="preload" href="./images/hero_background_image.webp" as="image" fetchpriority="high">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Performance Optimizations: Preconnect to CDNs -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Stylesheets -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        /* Ensure font-display swap is used */
+        @font-face {
+            font-family: 'Outfit';
+            font-display: swap;
+        }
         body { font-family: 'Outfit', sans-serif; }
         .animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
         @keyframes fadeIn {
@@ -23,7 +43,13 @@
     <header class="w-full h-20 bg-white border-b border-gray-100 flex items-center sticky top-0 z-50">
         <nav class="w-full max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
             <div class="flex items-center gap-4">
-                <img src="./images/hp-logo.jpeg" alt="HP Logo" class="h-10 w-10 object-contain block shrink-0 shadow-sm rounded-full">
+                <img 
+                    src="./images/hp-logo.jpeg" 
+                    alt="HP Logo" 
+                    class="h-10 w-10 object-contain block shrink-0 shadow-sm rounded-full"
+                    width="40"
+                    height="40"
+                >
                 <ul class="hidden md:flex flex-row gap-8 items-center ml-4">
                     <li class="text-gray-400 text-sm font-bold uppercase tracking-widest">OfficeJet</li>
                     <li class="text-gray-400 text-sm font-bold uppercase tracking-widest">DeskJet</li>
@@ -32,7 +58,7 @@
                 </ul>
             </div>
             <div class="md:hidden flex items-center ml-auto">
-                <button id="menu-toggle" class="focus:outline-none">
+                <button id="menu-toggle" class="focus:outline-none" aria-label="Toggle Menu">
                     <svg class="w-7 h-7 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
@@ -47,9 +73,10 @@
         </nav>
     </header>
 
-    <main class="min-h-[91vh] flex flex-col relative overflow-hidden" style="background-image: url('./images/hero_background_image.webp'); background-size: cover; background-position: center;">
+    <main class="min-h-[91vh] flex flex-col relative overflow-hidden">
+        <img src="./images/hero_background_image.webp" alt="HP Printer Setup" class="absolute inset-0 w-full h-full object-cover z-0" fetchpriority="high">
         <!-- Overlay to ensure text readability -->
-        <div class="absolute inset-0"></div>
+        <div class="absolute inset-0 bg-white/10 z-[1]"></div>
         
         <div class="flex flex-1 items-center justify-center px-4 py-12 relative z-10">
             <div class="bg-gradient-to-br from-red-300 via-pink-300 to-yellow-400 p-1 rounded-3xl w-full max-w-3xl animate-fade-in error-card-glow">

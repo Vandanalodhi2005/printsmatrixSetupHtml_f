@@ -4,10 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Complete 123.hp.com/setup Steps | HP Printer Setup, Offline Fix & Troubleshooting</title>
+    <meta name="description" content="Complete your HP printer setup using the HP Smart App. Step-by-step instructions for installing drivers and configuring scan/print features.">
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script" fetchpriority="high">
+    <link rel="preload" href="./images/hero_background_image.webp" as="image" fetchpriority="high">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Performance Optimizations: Preconnect to CDNs -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Stylesheets -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        /* Ensure font-display swap is used */
+        @font-face {
+            font-family: 'Outfit';
+            font-display: swap;
+        }
         body { font-family: 'Outfit', sans-serif; }
         .text-navy { color: #0a2558; }
         .bg-navy { background-color: #0a2558; }
@@ -30,9 +50,10 @@
                 <img 
                     src="./images/hp-logo.jpeg" 
                     alt="HP Logo" 
-                    class="h-10 w-10 object-contain block shrink-0 shadow-sm rounded-full" 
+                    class="h-10 w-10 object-contain block shrink-0 shadow-sm rounded-full"
+                    width="40"
+                    height="40"
                 >
-                <!-- Desktop Menu -->
                 <ul class="hidden md:flex flex-row gap-8 items-center ml-4">
                     <li class="text-gray-400 text-sm font-bold uppercase tracking-widest">OfficeJet</li>
                     <li class="text-gray-400 text-sm font-bold uppercase tracking-widest">DeskJet</li>
@@ -42,7 +63,7 @@
             </div>
             <!-- Mobile Hamburger -->
             <div class="md:hidden flex items-center ml-auto">
-                <button id="menu-toggle" aria-label="Open menu" class="focus:outline-none">
+                <button id="menu-toggle" aria-label="Toggle Menu" class="focus:outline-none">
                     <svg class="w-7 h-7 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
@@ -65,6 +86,7 @@
                 src="./images/hero_background_image.webp"
                 alt=""
                 class="absolute inset-0 w-full h-full object-cover z-0"
+                fetchpriority="high"
             />
             <div class="w-full max-w-[1200px] flex flex-col md:flex-row items-center md:items-start justify-between relative h-full z-10">
                 <div class="flex flex-col justify-center h-full w-full max-w-2xl md:pt-16 text-center md:text-left">
