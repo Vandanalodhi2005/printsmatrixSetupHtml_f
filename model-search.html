@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>123.hp.com/setup | HP Printer Setup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body { font-family: 'Outfit', sans-serif; }
+        .hero-bg {
+            position: relative;
+            background-image: url('./images/hero_background_image.webp');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(44, 44, 44, 0.192);/* Subtle dark overlay for text readability */
+            z-index: 1;
+        }
+        .pill-input {
+            border-radius: 9999px;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        .pill-button {
+            border-radius: 9999px;
+            padding-left: 2.5rem;
+            padding-right: 2.5rem;
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-900 overflow-x-hidden">
+
+    <!-- HeaderSetup -->
+    <header class="w-full h-20 bg-white flex items-center border-b border-gray-100">
+        <nav class="w-full max-w-7xl mx-auto px-4 md:px-8 flex items-center">
+            <div class="flex items-center gap-6">
+                <img src="./images/hp-logo.jpeg" alt="HP Logo" class="h-10 w-10 object-contain rounded-full shadow-sm">
+                <ul class="hidden md:flex flex-row gap-8 items-center">
+                    <li class="text-slate-400 text-sm font-bold uppercase tracking-widest">OfficeJet</li>
+                    <li class="text-slate-400 text-sm font-bold uppercase tracking-widest">DeskJet</li>
+                    <li class="text-slate-400 text-sm font-bold uppercase tracking-widest">ENVY</li>
+                    <li class="text-slate-400 text-sm font-bold uppercase tracking-widest">LaserJet</li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="w-full min-h-[450px] hero-bg flex items-center relative py-16 md:py-0">
+        <div class="w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between relative z-10">
+            <!-- Left Content -->
+            <div class="w-full md:w-1/2 text-left space-y-6">
+                <h1 class="text-white text-4xl md:text-5xl font-bold leading-tight">
+                    Set up your printer
+                </h1>
+                <p class="text-white text-lg md:text-xl font-medium max-w-md">
+                    Enter your product name and model number to get the right smart software and drivers for you
+                </p>
+                <form id="search-form" class="flex flex-col md:flex-row gap-4 mt-8">
+                    <input
+                        type="text"
+                        id="search-input"
+                        placeholder='Enter your product name here. For example: "OfficeJ...'
+                        class="w-full md:w-[400px] h-12 pill-input text-lg border-none focus:outline-none focus:ring-2 focus:ring-blue-400 shadow-lg"
+                    >
+                    <button
+                        type="submit"
+                        class="h-12 pill-button bg-white text-blue-600 font-bold text-lg hover:bg-slate-50 transition-colors shadow-lg"
+                    >
+                        Search
+                    </button>
+                </form>
+                <div id="error-message" class="text-red-200 font-bold text-sm hidden">
+                    Please enter your printer model to continue.
+                </div>
+            </div>
+
+            <!-- Right Content (Image) -->
+            <div class="w-full md:w-1/2 flex justify-center md:justify-end mt-12 md:mt-0">
+                <img
+                    src="./images/printer-without-bg.png"
+                    alt="HP Printer and Software"
+                    class="h-[250px] md:h-[320px] w-auto object-contain drop-shadow-2xl"
+                />
+            </div>
+        </div>
+    </section>
+
+    <!-- Lower Content Section -->
+    <main class="w-full max-w-7xl mx-auto px-6 md:px-12 py-20">
+        <div class="max-w-2xl space-y-6">
+            <p class="text-slate-700 text-lg md:text-xl leading-relaxed">
+                Install smart software and drivers on each mobile device or computer that you want to print from. Add the printer on the new device.
+            </p>
+            <p class="text-slate-700 text-lg md:text-xl">
+                Need additional help with set-up? Visit <a href="#" class="text-blue-600 underline hover:text-blue-800">support</a>
+            </p>
+        </div>
+    </main>
+
+    <script>
+        const searchForm = document.getElementById('search-form');
+        const searchInput = document.getElementById('search-input');
+        const errorMessage = document.getElementById('error-message');
+
+        searchForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const val = searchInput.value.trim();
+            if (val === "") {
+                errorMessage.classList.remove('hidden');
+                return;
+            }
+            errorMessage.classList.add('hidden');
+            localStorage.setItem('printerModel', val);
+            // Preserve the original issue from index.html
+            window.location.href = 'complete-setup.html';
+        });
+    </script>
+</body>
+</html>
