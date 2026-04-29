@@ -86,11 +86,11 @@
                 Set Up & Troubleshoot Your Printer in Minutes
             </p>
             <div class="flex flex-wrap gap-4 md:gap-8 justify-center mt-2">
-                <span class="flex items-center text-[#22c55e] font-bold text-base md:text-lg bg-white/10 px-4 py-1 rounded-full backdrop-blur-sm border border-white/10">
-                    <i class="fa-solid fa-bolt mr-2"></i> Quick Setup
+                <span class="flex items-center text-[#22c55e] font-bold text-base md:text-lg bg-white/10 px-4 py-1 rounded-full backdrop-blur-sm border border-white/10 transition-all duration-300 hover:bg-green-500 hover:text-white">
+                    <svg class="w-5 h-5 mr-2 fill-current" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg"><path d="M313.553 233.031c-1.047-2.313-3.031-4.047-5.406-4.734l-117.125-34.344v-128c0-2.813-1.625-5.375-4.156-6.609-2.547-1.219-5.563-0.891-7.766 0.828l-176 136c-2.313 1.797-3.484 4.688-3.047 7.563s2.328 5.203 4.875 6.047l117.125 34.344v128c0 2.813 1.625 5.375 4.156 6.609 0.938 0.453 1.953 0.672 2.969 0.672 1.688 0 3.359-0.625 4.797-1.797l176-136c2.313-1.781 3.484-4.672 3.047-7.563-0.422-2.875-2.313-5.203-4.875-6.047l-117.125-34.344z"/></svg> Quick Setup
                 </span>
-                <span class="flex items-center text-[#22c55e] font-bold text-base md:text-lg bg-white/10 px-4 py-1 rounded-full backdrop-blur-sm border border-white/10">
-                    <i class="fa-solid fa-screwdriver-wrench mr-2"></i> Easy Troubleshooting
+                <span class="flex items-center text-[#22c55e] font-bold text-base md:text-lg bg-white/10 px-4 py-1 rounded-full backdrop-blur-sm border border-white/10 transition-all duration-300 hover:bg-green-500 hover:text-white">
+                    <svg class="w-5 h-5 mr-2 fill-current" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M470.83 207.3L304.7 41.17c-11.72-11.72-30.71-11.72-42.43 0l-166.1 166.1c-11.72 11.72-11.72 30.71 0 42.43l166.1 166.1c11.72 11.72 30.71 11.72 42.43 0l166.1-166.1c11.71-11.72 11.71-30.71 0.03-42.43zm-101.8 126.7c-5.86 5.86-15.35 5.86-21.21 0L242.4 228.6c-5.86-5.86-5.86-15.35 0-21.21s15.35-5.86 21.21 0l105.4 105.4c5.86 5.86 5.86 15.36 0 21.21z"/></svg> Easy Troubleshooting
                 </span>
             </div>
         </div>
@@ -373,12 +373,8 @@
         const menuIcon = document.getElementById('menu-icon');
         
         menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            if (mobileMenu.classList.contains('hidden')) {
-                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
-            } else {
-                menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
-            }
+            const isHidden = mobileMenu.classList.toggle('hidden');
+            menuIcon.setAttribute('d', isHidden ? 'M4 6h16M4 12h16M4 18h16' : 'M6 18L18 6M6 6l12 12');
         });
 
         // Issue Selection Logic
