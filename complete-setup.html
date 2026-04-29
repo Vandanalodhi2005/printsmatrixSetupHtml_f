@@ -155,13 +155,16 @@
     </div>
 
     <!-- FinalStep Modal -->
-    <div id="final-step-modal" class="hidden fixed inset-0 z-[100] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-2xl p-6 md:p-10 relative overflow-y-auto max-h-[90vh]">
+    <div id="final-step-modal" class="hidden fixed inset-0 z-[100] bg-black/50 backdrop-blur-sm flex items-center justify-center p-4 transition-all duration-500">
+        <!-- Main Card Container -->
+        <div id="modal-card" class="bg-white rounded-2xl shadow-2xl w-full max-w-lg relative overflow-y-auto max-h-[90vh] transition-all duration-500">
+            <!-- Close Button (Only for registration) -->
             <button id="close-modal" class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-gray-800 transition-all z-10">
                 <i class="fa-solid fa-xmark"></i>
             </button>
             
-            <div id="final-step-content" class="animate-fade-in">
+            <!-- Registration Form Content -->
+            <div id="final-step-content" class="p-6 md:p-10 animate-fade-in">
                 <!-- Header Section -->
                 <div class="text-center mb-8 relative">
                     <span class="text-[12px] font-black text-blue-600 uppercase tracking-[0.2em]">Final Step</span>
@@ -217,84 +220,81 @@
                 </form>
             </div>
 
-            <!-- Device Setup Assistant Modal (New Design) -->
-            <div id="progress-container" class="hidden text-left animate-fade-in">
-                <!-- Modal Window -->
-                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100">
-                    <!-- Modal Header -->
-                    <div class="flex items-center px-6 py-4 border-b border-gray-100 bg-gray-50/50">
-                        <i class="fa-solid fa-gear text-gray-400 mr-2 animate-spin" style="animation-duration: 4s;"></i>
-                        <span class="font-bold text-slate-700">Device Setup Assistant</span>
-                        <div class="ml-auto flex gap-2">
-                            <div class="w-3 h-3 rounded-full bg-red-400"></div>
-                            <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
-                            <div class="w-3 h-3 rounded-full bg-green-400"></div>
+            <!-- Device Setup Assistant (Progress Mode) -->
+            <div id="progress-container" class="hidden animate-fade-in overflow-hidden">
+                <!-- Modal Header -->
+                <div class="flex items-center px-6 py-4 border-b border-gray-100 bg-gray-50/50">
+                    <i class="fa-solid fa-gear text-slate-400 mr-2 animate-spin" style="animation-duration: 4s;"></i>
+                    <span class="font-bold text-slate-700 text-sm">Device Setup Assistant</span>
+                    <div class="ml-auto flex gap-1.5">
+                        <div class="w-2.5 h-2.5 rounded-full bg-red-400"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
+                        <div class="w-2.5 h-2.5 rounded-full bg-green-400"></div>
+                    </div>
+                </div>
+
+                <!-- Modal Body -->
+                <div class="p-8 md:p-10">
+                    <!-- User/Printer Info -->
+                    <div class="flex items-center mb-8">
+                        <div class="bg-blue-50 p-4 rounded-xl mr-5">
+                            <i class="fa-solid fa-print text-blue-600 text-2xl"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <h3 id="display-printer-name" class="text-xl font-bold text-slate-800 leading-tight">Printer Model</h3>
+                            <p class="text-slate-400 text-sm font-medium mt-0.5">Authorized User: <span id="display-user-name" class="text-slate-500">User</span></p>
                         </div>
                     </div>
 
-                    <!-- Modal Body -->
-                    <div class="p-8 md:p-10">
-                        <!-- User/Printer Info -->
-                        <div class="flex items-center mb-10">
-                            <div class="bg-blue-50 p-4 rounded-2xl mr-5">
-                                <i class="fa-solid fa-print text-blue-600 text-3xl"></i>
+                    <!-- Progress Steps -->
+                    <div class="space-y-8 relative">
+                        <!-- Vertical Line Connector -->
+                        <div class="absolute left-[13px] top-6 bottom-4 w-0.5 bg-gray-100 -z-10"></div>
+
+                        <!-- Step 1 -->
+                        <div id="step-0" class="relative flex items-start group">
+                            <div class="step-icon mr-5 flex-shrink-0 w-7 h-7 rounded-full border-2 border-gray-200 bg-white flex items-center justify-center transition-all">
+                                <i class="fa-solid fa-check text-white text-[10px] hidden"></i>
                             </div>
-                            <div>
-                                <h3 id="display-printer-name" class="text-xl font-black text-slate-800 leading-tight">HP OfficeJet Pro</h3>
-                                <p class="text-slate-500 text-sm font-medium">Authorized User: <span id="display-user-name">User</span></p>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="step-label font-bold text-slate-400 transition-colors text-sm">Checking Device Compatibility</span>
+                                    <span class="step-status text-[11px] font-bold text-green-600 hidden">Verified</span>
+                                </div>
+                                <div class="w-full bg-gray-100 rounded-full h-[6px] overflow-hidden">
+                                    <div class="step-bar h-full bg-blue-600 rounded-full transition-all duration-300" style="width: 0%"></div>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Progress Steps -->
-                        <div class="space-y-10 relative">
-                            <!-- Vertical Line Connector -->
-                            <div class="absolute left-[11px] top-6 bottom-4 w-0.5 bg-gray-100 -z-10"></div>
-
-                            <!-- Step 1 -->
-                            <div id="step-0" class="relative flex items-start group">
-                                <div class="step-icon mr-5 flex-shrink-0 w-6 h-6 rounded-full border-2 border-gray-200 bg-white flex items-center justify-center transition-all">
-                                    <i class="fa-solid fa-check text-white text-[10px] hidden"></i>
+                        <!-- Step 2 -->
+                        <div id="step-1" class="relative flex items-start group">
+                            <div class="step-icon mr-5 flex-shrink-0 w-7 h-7 rounded-full border-2 border-gray-200 bg-white flex items-center justify-center transition-all">
+                                <i class="fa-solid fa-check text-white text-[10px] hidden"></i>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="step-label font-bold text-slate-400 transition-colors text-sm">Downloading Drivers for <span class="printer-name-inline">Printer</span></span>
+                                    <span class="step-status text-[11px] font-bold text-green-600 hidden">Completed (145 MB)</span>
                                 </div>
-                                <div class="flex-1 min-w-0">
-                                    <div class="flex justify-between items-center mb-3">
-                                        <span class="step-label font-bold text-slate-400 transition-colors">Checking Device Compatibility</span>
-                                        <span class="step-status text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full bg-green-50 text-green-600 hidden">Verified</span>
-                                    </div>
-                                    <div class="w-full bg-gray-100 rounded-full h-2 overflow-hidden">
-                                        <div class="step-bar h-full bg-blue-600 rounded-full transition-all duration-300" style="width: 0%"></div>
-                                    </div>
+                                <div class="w-full bg-gray-100 rounded-full h-[6px] overflow-hidden">
+                                    <div class="step-bar h-full bg-blue-600 rounded-full transition-all duration-300" style="width: 0%"></div>
                                 </div>
                             </div>
+                        </div>
 
-                            <!-- Step 2 -->
-                            <div id="step-1" class="relative flex items-start group">
-                                <div class="step-icon mr-5 flex-shrink-0 w-6 h-6 rounded-full border-2 border-gray-200 bg-white flex items-center justify-center transition-all">
-                                    <i class="fa-solid fa-check text-white text-[10px] hidden"></i>
-                                </div>
-                                <div class="flex-1 min-w-0">
-                                    <div class="flex justify-between items-center mb-3">
-                                        <span class="step-label font-bold text-slate-400 transition-colors">Downloading Drivers for <span class="printer-name-inline">Printer</span></span>
-                                        <span class="step-status text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full bg-green-50 text-green-600 hidden">Completed (145 MB)</span>
-                                    </div>
-                                    <div class="w-full bg-gray-100 rounded-full h-2 overflow-hidden">
-                                        <div class="step-bar h-full bg-blue-600 rounded-full transition-all duration-300" style="width: 0%"></div>
-                                    </div>
-                                </div>
+                        <!-- Step 3 -->
+                        <div id="step-2" class="relative flex items-start group">
+                            <div class="step-icon mr-5 flex-shrink-0 w-7 h-7 rounded-full border-2 border-gray-200 bg-white flex items-center justify-center transition-all">
+                                <div class="spinner hidden w-2.5 h-2.5 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
                             </div>
-
-                            <!-- Step 3 -->
-                            <div id="step-2" class="relative flex items-start group">
-                                <div class="step-icon mr-5 flex-shrink-0 w-6 h-6 rounded-full border-2 border-gray-200 bg-white flex items-center justify-center transition-all">
-                                    <div class="spinner hidden w-3 h-3 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+                            <div class="flex-1 min-w-0">
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="step-label font-bold text-slate-400 transition-colors text-sm">Installing Package...</span>
+                                    <span class="step-status text-[11px] font-bold text-blue-600 hidden">Initializing...</span>
                                 </div>
-                                <div class="flex-1 min-w-0">
-                                    <div class="flex justify-between items-center mb-3">
-                                        <span class="step-label font-bold text-slate-400 transition-colors">Installing Package...</span>
-                                        <span class="step-status text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full bg-blue-50 text-blue-600 hidden">Initializing...</span>
-                                    </div>
-                                    <div class="w-full bg-gray-100 rounded-full h-2 overflow-hidden">
-                                        <div class="step-bar h-full bg-blue-600 rounded-full transition-all duration-300 shadow-[0_0_8px_rgba(37,99,235,0.4)]" style="width: 0%"></div>
-                                    </div>
+                                <div class="w-full bg-gray-100 rounded-full h-[6px] overflow-hidden">
+                                    <div class="step-bar h-full bg-blue-600 rounded-full transition-all duration-300" style="width: 0%"></div>
                                 </div>
                             </div>
                         </div>
@@ -381,9 +381,17 @@
             document.getElementById('display-printer-name').innerText = printerName;
             document.querySelectorAll('.printer-name-inline').forEach(el => el.innerText = printerName);
 
+            // Change background to PURE BLACK during progress
+            modal.classList.remove('bg-black/50', 'backdrop-blur-sm');
+            modal.classList.add('bg-black');
             modal.classList.remove('hidden');
+            
+            // Hide registration form and show progress
             finalStepContent.classList.add('hidden');
             progressContainer.classList.remove('hidden');
+            
+            // Hide the close button during progress
+            closeModal.classList.add('hidden');
 
             const steps = [
                 { id: 0, wait: 2000 },
@@ -405,7 +413,7 @@
 
                 // Activate current step
                 label.classList.remove('text-slate-400');
-                label.classList.add('text-blue-700');
+                label.classList.add('text-slate-700');
                 if (spinner) spinner.classList.remove('hidden');
                 icon.classList.add('border-blue-600');
 
@@ -436,7 +444,7 @@
                         if (check) check.classList.remove('hidden');
                         icon.classList.remove('border-blue-600', 'border-gray-200');
                         icon.classList.add('bg-green-500', 'border-green-500');
-                        label.classList.remove('text-blue-700');
+                        label.classList.remove('text-slate-700');
                         label.classList.add('text-slate-800');
                         if (status) status.classList.remove('hidden');
 
