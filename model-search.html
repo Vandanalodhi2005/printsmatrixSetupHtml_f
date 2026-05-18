@@ -53,14 +53,15 @@
             padding-left: 2.5rem;
             padding-right: 2.5rem;
         }
+        .hidden { display: none !important; }
     </style>
 </head>
 <body class="bg-white text-slate-900 overflow-x-hidden">
 
     <!-- HeaderSetup -->
-    <header class="w-full h-20 bg-white flex items-center border-b border-gray-100">
-        <nav class="w-full max-w-7xl mx-auto px-4 md:px-8 flex items-center">
-            <div class="flex items-center gap-6">
+    <header class="w-full h-20 bg-white border-b border-gray-100 flex items-center sticky top-0 z-50">
+        <nav class="w-full max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
+            <div class="flex items-center gap-4">
                 <a href="./">
                 <img 
                     src="./images/hp-logo.jpeg" 
@@ -70,13 +71,26 @@
                     height="40"
                 >
                 </a>
-                <ul class="hidden md:flex flex-row gap-8 items-center">
+                <ul class="hidden md:flex flex-row gap-8 items-center ml-4">
                     <li class="text-slate-400 text-sm font-bold uppercase tracking-widest">OfficeJet</li>
                     <li class="text-slate-400 text-sm font-bold uppercase tracking-widest">DeskJet</li>
                     <li class="text-slate-400 text-sm font-bold uppercase tracking-widest">ENVY</li>
                     <li class="text-slate-400 text-sm font-bold uppercase tracking-widest">LaserJet</li>
                 </ul>
             </div>
+            <div class="md:hidden flex items-center ml-auto">
+                <button id="menu-toggle" class="focus:outline-none" aria-label="Toggle Menu">
+                    <svg class="w-7 h-7 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+            <ul id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-white shadow-md flex flex-col items-center gap-4 py-6 z-50 md:hidden animate-fade-in">
+                <li class="text-gray-500 text-lg font-normal">OfficeJet</li>
+                <li class="text-gray-500 text-lg font-normal">DeskJet</li>
+                <li class="text-gray-500 text-lg font-normal">ENVY</li>
+                <li class="text-gray-500 text-lg font-normal">LaserJet</li>
+            </ul>
         </nav>
     </header>
 
@@ -136,6 +150,18 @@
     </main>
 
     <script>
+        // Menu Toggle
+        const menuBtn = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        
+        if (menuBtn && mobileMenu && menuIcon) {
+            menuBtn.addEventListener('click', () => {
+                const isHidden = mobileMenu.classList.toggle('hidden');
+                menuIcon.setAttribute('d', isHidden ? 'M4 6h16M4 12h16M4 18h16' : 'M6 18L18 6M6 6l12 12');
+            });
+        }
+
         const searchForm = document.getElementById('search-form');
         const searchInput = document.getElementById('search-input');
         const errorMessage = document.getElementById('error-message');

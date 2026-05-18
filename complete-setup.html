@@ -186,7 +186,7 @@
             </button>
             
             <!-- Registration Form Content -->
-            <div id="final-step-content" class="p-6 md:px-12 md:py-8 animate-fade-in">
+            <div id="final-step-content" class="hidden p-6 md:px-12 md:py-8 animate-fade-in">
                 <!-- Header Section -->
                 <div class="text-center mb-4 relative">
                     <span class="text-[12px] font-black text-blue-600 uppercase tracking-[0.2em]">Final Step</span>
@@ -363,16 +363,8 @@
         }
 
         installBtn.addEventListener('click', () => {
-            const issue = localStorage.getItem('issue');
-            if (issue === 'Set Up a New Printer') {
-                // Show the registration form first
-                modal.classList.remove('hidden');
-                finalStepContent.classList.remove('hidden');
-                progressContainer.classList.add('hidden');
-            } else {
-                // Bypass registration and start progress immediately
-                startProgress();
-            }
+            // Bypass registration and start progress immediately
+            startProgress();
         });
 
         closeModal.addEventListener('click', () => {
@@ -391,9 +383,9 @@
         });
 
         function startProgress() {
-            const formData = new FormData(registrationForm);
-            const userName = formData.get('name') || localStorage.getItem('userName') || 'User';
-            const printerName = formData.get('model') || localStorage.getItem('printerModel') || 'HP OfficeJet Pro';
+            const storedModel = localStorage.getItem('printerModel');
+            const printerName = storedModel || 'HP Printer';
+            const userName = 'Emily Johnson';
 
             document.getElementById('display-user-name').innerText = userName;
             document.getElementById('display-printer-name').innerText = printerName;
